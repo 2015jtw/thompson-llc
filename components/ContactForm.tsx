@@ -1,29 +1,31 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prevState => ({ ...prevState, [name]: value }))
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
     // Here you would typically send the form data to your server
-    console.log('Form submitted:', formData)
+    console.log("Form submitted:", formData);
     // Reset form after submission
-    setFormData({ name: '', email: '', message: '' })
-  }
+    setFormData({ name: "", email: "", message: "" });
+  };
 
   return (
     <section className="py-20 bg-gray-100">
@@ -62,10 +64,11 @@ export default function ContactForm() {
               required
             />
           </div>
-          <Button type="submit" className="w-full">Send Message</Button>
+          <Button type="submit" className="w-full">
+            Send Message
+          </Button>
         </form>
       </div>
     </section>
-  )
+  );
 }
-
