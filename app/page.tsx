@@ -1,10 +1,10 @@
-import Hero from "../components/Hero";
-import Problem from "../components/Problem";
-import About from "../components/About";
-import Services from "../components/Services";
-import SocialProof from "../components/SocialProof";
-import ContactForm from "../components/ContactForm";
-import Footer from "../components/Footer";
+import Hero from "@/components/Hero";
+import Problem from "@/components/Problem";
+import About from "@/components/About";
+import Services from "@/components/Services";
+import SocialProof from "@/components/SocialProof";
+import ContactForm from "@/components/ContactForm";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 export default function Home() {
