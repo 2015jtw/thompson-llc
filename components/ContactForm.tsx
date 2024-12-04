@@ -28,11 +28,11 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="py-20 bg-gray-100">
+    <section id="contact" className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8">Contact Us</h2>
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-          <div className="mb-4">
+        <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
+          <div className="mb-4 bg-white">
             <Input
               type="text"
               id="name"
@@ -43,7 +43,7 @@ export default function ContactForm() {
               required
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 bg-white">
             <Input
               type="email"
               id="email"
@@ -54,7 +54,7 @@ export default function ContactForm() {
               required
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 bg-white">
             <Textarea
               id="message"
               name="message"
