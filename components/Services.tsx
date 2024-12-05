@@ -8,21 +8,18 @@ import { Globe, TrendingUp, GraduationCap } from "lucide-react";
 
 const services = [
   {
-    title: "Foreign Affairs Consulting",
-    description:
-      "Strategic advice on international relations and policy development. Our expert team provides in-depth analysis and tailored recommendations to navigate complex global landscapes.",
+    title: "Service Title ",
+    description: "Service Description",
     icon: Globe,
   },
   {
-    title: "International Development",
-    description:
-      "Sustainable development strategies and project management. We design and implement comprehensive programs that drive positive change and foster long-term growth in diverse communities worldwide.",
+    title: "Service Title",
+    description: "Service Description",
     icon: TrendingUp,
   },
   {
-    title: "Diplomatic Training",
-    description:
-      "Comprehensive training programs for diplomatic corps and international organizations. Our courses enhance negotiation skills, cultural competence, and strategic thinking for effective global engagement.",
+    title: "Service Title",
+    description: "Service Description",
     icon: GraduationCap,
   },
 ];

@@ -17,17 +17,9 @@ export default function About() {
             </div>
           </div>
           <div className="md:w-1/2 md:pl-8">
-            <h3 className="text-2xl font-semibold mb-4">Dr. Emily Thompson</h3>
-            <p className="text-lg mb-4">
-              With over 20 years of experience in international relations and
-              diplomacy, Dr. Thompson founded Thompson LLC to provide expert
-              consultancy services to organizations and governments worldwide.
-            </p>
-            <p className="text-lg">
-              Our team of seasoned professionals brings a wealth of knowledge
-              and practical experience to every project, ensuring innovative
-              solutions to global challenges.
-            </p>
+            <h3 className="text-2xl font-semibold mb-4">Name</h3>
+            <p className="text-lg mb-4">Summary Part 1</p>
+            <p className="text-lg">Summary Part 2</p>
           </div>
         </div>
       </div>
