@@ -4,27 +4,47 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { Globe, TrendingUp, GraduationCap } from "lucide-react";
+// import { Globe, TrendingUp, GraduationCap } from "lucide-react";
+import { PortableText } from "@portabletext/react";
+import { client } from "../sanity/lib/client";
+import { SERVICES_QUERY } from "../sanity/lib/queries";
 
-const services = [
-  {
-    title: "Service Title ",
-    description: "Service Description",
-    icon: Globe,
-  },
-  {
-    title: "Service Title",
-    description: "Service Description",
-    icon: TrendingUp,
-  },
-  {
-    title: "Service Title",
-    description: "Service Description",
-    icon: GraduationCap,
-  },
-];
+// const services = [
+//   {
+//     title: "Sustainable economic growth planning",
+//     description: "Service Description",
+//     icon: Globe,
+//   },
+//   {
+//     title: "Smart urban development strategy formulation",
+//     description: "Service Description",
+//     icon: TrendingUp,
+//   },
+//   {
+//     title: "Sustainable private sector development strategies",
+//     description: "Service Description",
+//     icon: GraduationCap,
+//   },
+//   {
+//     title: "Linkage with international development agencies and programs",
+//     description: "Service Description",
+//     icon: Globe,
+//   },
+//   {
+//     title: "Leadership advisory and mentorship",
+//     description: "Service Description",
+//     icon: TrendingUp,
+//   },
+//   {
+//     title: "Assessments and analyses",
+//     description: "Service Description",
+//     icon: GraduationCap,
+//   },
+// ];
 
-export default function Services() {
+export default async function Services() {
+  const services = await client.fetch(SERVICES_QUERY);
+
   return (
     <section id="services" className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -34,10 +54,12 @@ export default function Services() {
             <Card key={index} className="h-full flex flex-col">
               <CardHeader className="flex-grow">
                 <div className="flex flex-col items-start space-y-4">
-                  <service.icon className="h-12 w-12 mb-2" />
+                  {/* <service.icon className="h-12 w-12 mb-2" /> */}
                   <div>
                     <CardTitle className="mb-2">{service.title}</CardTitle>
-                    <CardDescription>{service.description}</CardDescription>
+                    <CardDescription>
+                      <PortableText value={service.body} />
+                    </CardDescription>
                   </div>
                 </div>
               </CardHeader>
