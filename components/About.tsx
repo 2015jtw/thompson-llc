@@ -3,10 +3,11 @@ import { client } from "../sanity/lib/client";
 import { ABOUT_QUERY } from "../sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
+import { ABOUT_QUERYResult } from "@/sanity.types";
 
 export default async function About() {
   const about = await client.fetch(ABOUT_QUERY);
-  const aboutData = about[0];
+  const aboutData: ABOUT_QUERYResult[0] = about[0];
   return (
     <section id="about" className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
