@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { client } from "../../sanity/lib/client";
-import { ABOUT_QUERY } from "../../sanity/lib/queries";
+import { client } from "../sanity/lib/client";
+import { ABOUT_QUERY } from "../sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
 import { ABOUT_QUERYResult } from "@/sanity.types";
