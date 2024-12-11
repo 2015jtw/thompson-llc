@@ -7,7 +7,6 @@ import { urlFor } from "@/sanity/lib/image";
 export default async function About() {
   const about = await client.fetch(ABOUT_QUERY);
   const aboutData = about[0];
-  console.log("about", about);
   return (
     <section id="about" className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
