@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { client } from "@/sanity/lib/client";
+import { HERO_QUERY } from "@/sanity/lib/queries";
 
-export default function Hero() {
+export default async function Hero() {
+  const hero = await client.fetch(HERO_QUERY);
   return (
     <section
       id="hero"

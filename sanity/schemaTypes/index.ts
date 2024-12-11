@@ -1,7 +1,8 @@
 import { type SchemaTypeDefinition } from "sanity";
 import { serviceType } from "./serviceType";
 import { aboutType } from "./aboutType";
+import { heroType } from "./heroType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [serviceType, aboutType],
+  types: [serviceType, aboutType, heroType],
 };

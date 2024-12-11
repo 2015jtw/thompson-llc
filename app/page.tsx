@@ -4,8 +4,8 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import SocialProof from "@/components/SocialProof";
 import ContactForm from "@/components/ContactForm";
-import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
