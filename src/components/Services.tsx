@@ -3,7 +3,7 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
-} from "@/components/ui/card";
+} from "@/src/components/ui/card";
 import {
   Globe,
   Handshake,
@@ -13,8 +13,8 @@ import {
   User,
 } from "lucide-react";
 import { PortableText } from "@portabletext/react";
-import { client } from "../sanity/lib/client";
-import { SERVICES_QUERY } from "../sanity/lib/queries";
+import { client } from "../../sanity/lib/client";
+import { SERVICES_QUERY } from "../../sanity/lib/queries";
 import { SERVICES_QUERYResult } from "@/sanity.types";
 
 const icon_map = {
