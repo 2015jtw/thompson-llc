@@ -74,6 +74,58 @@ export type Slug = {
   source?: string;
 };
 
+export type Problem = {
+  _id: string;
+  _type: "problem";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  hook?: string;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
+export type Hero = {
+  _id: string;
+  _type: "hero";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  missionStatement?: string;
+  subtitle?: string;
+  primaryButtonText?: string;
+  primaryButtonSlug?: string;
+  secondaryButtonText?: string;
+  secondaryButtonSlug?: string;
+  backgroundImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+};
+
 export type About = {
   _id: string;
   _type: "about";
@@ -209,7 +261,7 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | About | Service | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | Problem | Hero | About | Service | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
 // Variable: SERVICES_QUERY
@@ -272,6 +324,52 @@ export type ABOUT_QUERYResult = Array<{
     _key: string;
   }> | null;
 }>;
+// Variable: HERO_QUERY
+// Query: *[_type == "hero"]{    _id, missionStatement, subtitle, primaryButtonText, primaryButtonSlug, secondaryButtonText, secondaryButtonSlug, backgroundImage  }
+export type HERO_QUERYResult = Array<{
+  _id: string;
+  missionStatement: string | null;
+  subtitle: string | null;
+  primaryButtonText: string | null;
+  primaryButtonSlug: string | null;
+  secondaryButtonText: string | null;
+  secondaryButtonSlug: string | null;
+  backgroundImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+}>;
+// Variable: PROBLEM_QUERY
+// Query: *[_type == "problem"]{ _id, hook, description}
+export type PROBLEM_QUERYResult = Array<{
+  _id: string;
+  hook: string | null;
+  description: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
@@ -279,5 +377,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"service\"]{\n  _id, title, icon, body\n}": SERVICES_QUERYResult;
     "*[_type == \"about\"]{ _id, name, image, body }": ABOUT_QUERYResult;
+    "*[_type == \"hero\"]{\n    _id, missionStatement, subtitle, primaryButtonText, primaryButtonSlug, secondaryButtonText, secondaryButtonSlug, backgroundImage\n  }": HERO_QUERYResult;
+    "*[_type == \"problem\"]{ _id, hook, description}": PROBLEM_QUERYResult;
   }
 }

@@ -8,6 +8,11 @@ export const ABOUT_QUERY = defineQuery(
   `*[_type == "about"]{ _id, name, image, body }`
 );
 
-export const HERO_QUERY = defineQuery(`
-  *[_type == "hero"]{ _id, missionStatement, subtitle, primaryButtonText, primaryButtonSlug, secondaryButtonText, secondaryButtonSlug, backgroundImage }
-  `);
+export const HERO_QUERY = defineQuery(
+  `*[_type == "hero"]{
+    _id, missionStatement, subtitle, primaryButtonText, primaryButtonSlug, secondaryButtonText, secondaryButtonSlug, backgroundImage
+  }`
+);
+
+export const PROBLEM_QUERY = defineQuery(`
+*[_type == "problem"]{ _id, hook, description}`);

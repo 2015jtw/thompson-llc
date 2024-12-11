@@ -12,25 +12,15 @@ export default function Home() {
     <>
       <Navbar />
       <main className="min-h-screen pt-16">
-        <section id="hero">
-          <Hero />
-        </section>
-        <section id="problem">
-          <Problem />
-        </section>
+        <Hero />
+        <Problem />
+        <Services />
 
-        <section id="services">
-          <Services />
-        </section>
-        <section id="about">
-          <About />
-        </section>
-        <section id="testimonials">
-          <SocialProof />
-        </section>
-        <section id="contact">
-          <ContactForm />
-        </section>
+        <About />
+
+        <SocialProof />
+
+        <ContactForm />
       </main>
       <Footer />
     </>
