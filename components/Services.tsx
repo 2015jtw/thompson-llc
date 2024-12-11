@@ -15,6 +15,7 @@ import {
 import { PortableText } from "@portabletext/react";
 import { client } from "../sanity/lib/client";
 import { SERVICES_QUERY } from "../sanity/lib/queries";
+import { SERVICES_QUERYResult } from "@/sanity.types";
 
 const icon_map = {
   handshake: Handshake,
@@ -26,7 +27,7 @@ const icon_map = {
 };
 
 export default async function Services() {
-  const services = await client.fetch(SERVICES_QUERY);
+  const services: SERVICES_QUERYResult = await client.fetch(SERVICES_QUERY);
 
   return (
     <section id="services" className="py-20 bg-white">
