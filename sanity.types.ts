@@ -74,6 +74,44 @@ export type Slug = {
   source?: string;
 };
 
+export type About = {
+  _id: string;
+  _type: "about";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  body?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
 export type Service = {
   _id: string;
   _type: "service";
@@ -93,6 +131,7 @@ export type Service = {
     crop?: SanityImageCrop;
     _type: "image";
   };
+  icon?: "handshake" | "leaf" | "building" | "user" | "chart-line" | "globe";
   body?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -170,14 +209,50 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | Service | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | About | Service | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
 // Variable: SERVICES_QUERY
-// Query: *[_type == "service"]{  _id, title, body}
+// Query: *[_type == "service"]{  _id, title, icon, body}
 export type SERVICES_QUERYResult = Array<{
   _id: string;
   title: string | null;
+  icon: "building" | "chart-line" | "globe" | "handshake" | "leaf" | "user" | null;
+  body: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+}>;
+// Variable: ABOUT_QUERY
+// Query: *[_type == "about"]{ _id, name, image, body }
+export type ABOUT_QUERYResult = Array<{
+  _id: string;
+  name: string | null;
+  image: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
   body: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -202,6 +277,7 @@ export type SERVICES_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"service\"]{\n  _id, title, body\n}": SERVICES_QUERYResult;
+    "*[_type == \"service\"]{\n  _id, title, icon, body\n}": SERVICES_QUERYResult;
+    "*[_type == \"about\"]{ _id, name, image, body }": ABOUT_QUERYResult;
   }
 }
