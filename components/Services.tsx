@@ -32,7 +32,7 @@ export default async function Services() {
   return (
     <section id="services" className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-green">
+        <h2 className="text-3xl font-bold text-center mb-12 text-primary">
           Our Services
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -42,7 +42,7 @@ export default async function Services() {
               <Card key={index} className="h-full flex flex-col">
                 <CardHeader className="flex-grow">
                   <div className="flex flex-col items-start space-y-4">
-                    {Icon && <Icon className="h-12 w-12 mb-2 text-green" />}
+                    {Icon && <Icon className="h-12 w-12 mb-2 text-primary" />}
                     <div>
                       <CardTitle className="mb-4">{service.title}</CardTitle>
                       <CardDescription className="text-foreground">

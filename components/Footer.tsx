@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <p className="text-lg text-primary">
+            <p className="text-lg text-primary font-medium">
               © 2023 Thompson LLC. All rights reserved.
             </p>
           </div>

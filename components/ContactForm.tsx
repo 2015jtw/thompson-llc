@@ -50,7 +50,9 @@ export default function ContactForm() {
             onSubmit={form.handleSubmit(onSubmit)}
             className="max-w-2xl mx-auto w-full flex flex-col gap-4 my-12"
           >
-            <h2 className="text-4xl text-center">Contact Us</h2>
+            <h2 className="text-4xl text-primary font-semibold text-center">
+              Contact Us
+            </h2>
             <div className="flex flex-col md:flex-row gap-4">
               <FormField
                 name="firstName"
@@ -128,7 +130,9 @@ export default function ContactForm() {
             <h2 className="text-3xl font-bold">Thank You!</h2>
             <p className="text-xl">Your message has been sent successfully.</p>
             <div className="bg-gray-100 p-6 rounded-lg w-full max-w-md">
-              <h3 className="text-lg font-semibold mb-2">What&apos;s Next?</h3>
+              <h3 className="text-lg text-primary font-semibold mb-2">
+                What&apos;s Next?
+              </h3>
               <ul className="text-left list-disc list-inside space-y-2">
                 <li>We&apos;ll review your message</li>
                 <li>Our team will get back to you within 24-48 hours</li>
