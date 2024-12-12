@@ -34,3 +34,47 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## feat: New features or enhancements.
+
+Example: feat(header): add search bar component
+
+## fix: Bug fixes.
+
+Example: fix(button): resolve color issue on hover
+
+## docs: Documentation updates.
+
+Example: docs(readme): update project setup instructions
+
+## style: Formatting, missing semicolons, or any other changes that don’t affect the logic.
+
+Example: style(navbar): align logo and links
+
+## refactor: Code changes that neither fix a bug nor add a feature but improve readability or structure.
+
+Example: refactor(app): simplify state management
+
+## perf: Performance improvements.
+
+Example: perf(image): optimize image loading for mobile
+
+## test: Adding or updating tests.
+
+Example: test(button): add unit tests for button component
+
+## chore: Changes that don't affect the app or feature functionality but are related to maintenance tasks (e.g., configuration, dependencies).
+
+Example: chore(deps): update react to v18.1.0
+
+## build: Changes to the build process or external dependencies.
+
+Example: build: add webpack configuration for production
+
+## ci: Continuous integration updates.
+
+Example: ci(actions): update GitHub Actions workflow
+
+## revert: Reverts a previous commit.
+
+Example: revert(feat): remove the search bar feature
