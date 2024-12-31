@@ -18,7 +18,7 @@ export default async function Hero() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="w-full md:w-1/2 space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-green">
+            <h1 className="text-4xl md:text-5xl font-bold text-primary">
               {heroData.missionStatement}
             </h1>
             <p className="text-xl text-foreground">{heroData.subtitle}</p>
