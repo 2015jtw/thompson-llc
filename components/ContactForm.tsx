@@ -71,7 +71,7 @@ export default function ContactForm() {
           onSubmit={form.handleSubmit(onSubmit)}
           className="max-w-2xl mx-auto w-full flex flex-col gap-4 my-12"
         >
-          <h2 className="text-4xl text-primary font-semibold text-center">
+          <h2 className="text-4xl italic text-primary font-semibold text-center">
             Contact Us
           </h2>
           <div className="flex flex-col md:flex-row gap-4">
