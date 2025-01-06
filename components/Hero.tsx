@@ -10,10 +10,12 @@ import { AspectRatio } from "./ui/aspect-ratio";
 export default async function Hero() {
   const hero: HERO_QUERYResult = await client.fetch(HERO_QUERY);
   const heroData = hero[0];
+
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center bg-background text-foreground"
+      // className="min-h-screen flex items-center bg-background text-foreground"
+      className="min-h-screen flex items-center bg-gradient-to-r from-emerald-400 to-blue-500 text-foreground"
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
@@ -21,7 +23,7 @@ export default async function Hero() {
             <h1 className="text-4xl md:text-5xl font-bold text-primary">
               {heroData.missionStatement}
             </h1>
-            <p className="text-xl text-foreground">{heroData.subtitle}</p>
+            <p className="text-xl text-white">{heroData.subtitle}</p>
             <div className="flex flex-col sm:flex-row gap-4">
               {heroData.primaryButtonSlug && (
                 <Link href={heroData.primaryButtonSlug}>
