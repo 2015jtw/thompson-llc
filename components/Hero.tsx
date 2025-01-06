@@ -14,8 +14,7 @@ export default async function Hero() {
   return (
     <section
       id="hero"
-      // className="min-h-screen flex items-center bg-background text-foreground"
-      className="min-h-screen flex items-center bg-gradient-to-r from-emerald-400 to-blue-500 text-foreground"
+      className="min-h-screen flex items-center bg-gradient-to-r from-emerald-400 from-20% via-teal-500 via-40% to-blue-500 to-80% text-foreground"
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
