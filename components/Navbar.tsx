@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "Services", href: "#services" },
@@ -13,48 +12,89 @@ const navItems = [
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 10);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navPadding = hasScrolled ? "py-3" : "py-4";
 
   return (
-    <nav className="bg-white shadow-md fixed w-full z-50">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-4">
-          <Link href="/" className="text-2xl font-bold text-foreground">
-            Thompson LLC
-          </Link>
-          <div className="hidden md:flex space-x-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-black hover:text-primary text-lg transition duration-150 ease-in-out"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-          <Button
-            variant="ghost"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        hasScrolled
+          ? "bg-white/80 backdrop-blur-md shadow-[0_10px_40px_-24px_rgba(15,23,42,0.6)]"
+          : "bg-transparent"
+      }`}
+    >
+      <div className={`mx-auto flex max-w-6xl items-center justify-between px-4 ${navPadding}`}>
+        <Link
+          href="/"
+          className="group inline-flex items-center gap-2 rounded-full border border-transparent px-4 py-2 font-semibold text-slate-900 transition hover:border-slate-200 hover:bg-white/80"
+        >
+          <span className="text-base uppercase tracking-[0.4em] text-slate-500">Thompson</span>
+          <span className="text-lg">LLC</span>
+        </Link>
+
+        <div className="hidden items-center gap-8 md:flex">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-600 transition hover:text-slate-900"
+            >
+              {item.name}
+            </Link>
+          ))}
+          <Link
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-emerald-500 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:scale-105 hover:shadow-xl"
           >
-            <Menu />
-          </Button>
+            Let&rsquo;s Talk
+          </Link>
         </div>
-        {isMenuOpen && (
-          <div className="md:hidden pb-2">
+
+        <button
+          type="button"
+          className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/80 p-2.5 text-slate-700 transition hover:border-slate-300 hover:bg-white md:hidden"
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+          aria-expanded={isMenuOpen}
+          aria-label="Toggle navigation"
+        >
+          {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
+      </div>
+
+      {isMenuOpen && (
+        <div className="md:hidden">
+          <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 pb-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block py-2 pl-2 rounded-sm text-black  hover:bg-gray-200 transition duration-150 ease-in-out"
                 onClick={() => setIsMenuOpen(false)}
+                className="rounded-xl border border-transparent bg-white/80 px-4 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-600 shadow-sm transition hover:border-slate-200 hover:text-slate-900"
               >
                 {item.name}
               </Link>
             ))}
+            <Link
+              href="#contact"
+              onClick={() => setIsMenuOpen(false)}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-emerald-500 px-4 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-blue-600/20 transition hover:scale-[1.02] hover:shadow-xl"
+            >
+              Let&rsquo;s Talk
+            </Link>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </nav>
   );
 }
