@@ -20,7 +20,7 @@ const achievements = [
 
 export default function EnhancedAbout() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section id="about" className="py-24 bg-white relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-emerald-50 rounded-full blur-3xl"></div>

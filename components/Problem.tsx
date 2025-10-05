@@ -8,7 +8,7 @@ export default async function Problem() {
   const problemData: PROBLEM_QUERYResult[0] = problem[0];
   return (
     <section
-      id="problem"
+      id="challenge"
       className="relative overflow-hidden bg-slate-950 py-24 text-white"
     >
       <div
@@ -59,7 +59,7 @@ export default async function Problem() {
               ))}
             </div>
 
-            <div className="mt-8 grid gap-4 rounded-2xl border border-white/10 bg-slate-900/60 p-6 md:grid-cols-2">
+            <div className="mt-8 grid gap-4 rounded-2xl border border-white/10 bg-slate-900/60 p-6">
               <p className="text-sm uppercase tracking-[0.35em] text-blue-200">What&rsquo;s at stake</p>
               <p className="text-base text-slate-200">
                 We help leadership teams translate ambitious missions into measurable outcomes, bridging the gap between vision, partners, and the communities they serve.

@@ -5,6 +5,7 @@ import { Globe, Handshake, Leaf, Building, User, TrendingUp } from 'lucide-react
 
 const services = [
   {
+    id: "private-sector-development",
     icon: Handshake,
     title: "Private Sector Development",
     description: "Strategic frameworks for sustainable business growth and market expansion in emerging economies.",
@@ -12,6 +13,7 @@ const services = [
     bgColor: "bg-blue-500/10"
   },
   {
+    id: "economic-planning",
     icon: Leaf,
     title: "Economic Growth Planning",
     description: "Comprehensive strategies for sustainable economic development and environmental stewardship.",
@@ -19,6 +21,7 @@ const services = [
     bgColor: "bg-emerald-500/10"
   },
   {
+    id: "urban-development",
     icon: Building,
     title: "Urban Development",
     description: "Smart city solutions and urban planning strategies for modern, livable communities.",
@@ -26,6 +29,7 @@ const services = [
     bgColor: "bg-purple-500/10"
   },
   {
+    id: "leadership-advisory",
     icon: User,
     title: "Leadership Advisory",
     description: "Executive mentorship and strategic guidance for organizational transformation.",
@@ -33,6 +37,7 @@ const services = [
     bgColor: "bg-orange-500/10"
   },
   {
+    id: "analytics",
     icon: TrendingUp,
     title: "Assessments & Analytics",
     description: "Data-driven insights and comprehensive analysis for informed decision-making.",
@@ -40,6 +45,7 @@ const services = [
     bgColor: "bg-pink-500/10"
   },
   {
+    id: "international-linkages",
     icon: Globe,
     title: "International Linkages",
     description: "Connecting organizations with global development agencies and funding opportunities.",
@@ -52,7 +58,7 @@ export default function EnhancedServices() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
+    <section id="services" className="py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-100 rounded-full blur-3xl opacity-30"></div>
@@ -80,7 +86,8 @@ export default function EnhancedServices() {
             
             return (
               <div
-                key={index}
+                id={service.id}
+                key={service.id}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 className="group relative"
